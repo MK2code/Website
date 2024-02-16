@@ -1,0 +1,33 @@
+{% extends "user/index.html" %} {% block start %}
+<div class="content-section col-md-8 col-md-offset-2">
+  <form
+    method="POST"
+    style="border: 1px solid black; margin: 4%; padding: 10%; border-radius: 1%"
+  >
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend>Verify OTP</legend>
+      <div class="form-group">
+        <label for="otp">Enter OTP:</label>
+        <input type="text" class="form-control" id="otp" name="otp" required />
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <legend>Related Email</legend>
+      <div class="form-group">
+        <label for="email"></label>
+        <input type="text" class="form-control" id="email" name="email" required />
+      </div>
+    </fieldset>
+    <center>
+      <button
+        style="background: black; padding: 2%; font-size: 2rem; color: white"
+        class="btn btn-outline-info"
+        type="submit"
+      >
+        <span class="glyphicon glyphicon-check"></span> Verify OTP
+      </button>
+    </center>
+  </form>
+</div>
+{% endblock start %}

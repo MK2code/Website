@@ -70,6 +70,7 @@
 			<li><a href="{% url "index" %}">Home</a></li>
 
 			{% if user.is_authenticated %}
+			<li><a href="{% url "file_explorer" %}">Manage Files</a></li>
 			<li><a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
 			{% else %}
 			<li><a href="{% url "register" %}"><span class="glyphicon glyphicon-user"></span>  Sign up</a></li>
