@@ -17,6 +17,7 @@ def file_explorer(request):
     if request.method == 'POST':
         form = FileUploadForm(user, request.POST, request.FILES)
         if form.is_valid():
+            print(form.cleaned_data)
             folder = None
             try:
                 folder_id = form.cleaned_data['folder'].id
@@ -33,12 +34,11 @@ def file_explorer(request):
                 folder = Folder.objects.get(id=folder_id, owner=user)
 
             if folder:
-                uploaded_files = form.cleaned_data['file']
-                for file in uploaded_files:
-                    uploaded_file = file
+                uploaded_files = request.FILES.getlist('file')  # Get the list of uploaded files
+                for uploaded_file in uploaded_files:
                     file = File(name=uploaded_file.name, folder=folder, owner=user, file=uploaded_file)
                     file.save()
-                return redirect('file_explorer')
+            return redirect('file_explorer')
     else:
         form = FileUploadForm(user)
 

@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File Explorer</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to Your File Explorer</h1>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+      {% csrf_token %} 
+      {{ form.as_p }}
+      <button type="submit">Upload</button>
     </form>
-    
+
     <ul>
-        {% for folder in folders %}
-            <li>folder name- {{ folder.name }}- <a href="{% url 'delete_file' folder.id %}">Delete</a></li>
-            <ul>
-                {% for file in folder.file_set.all %}
-                    <li>{{ file.name }} - <a href="{% url 'delete_file' file.id %}">Delete</a></li>
-                {% endfor %}
-            </ul>
+      {% for folder in folders %}
+      <li>
+        folder name- {{ folder.name }}-
+        <a href="{% url 'delete_file' folder.id %}">Delete</a>
+      </li>
+      <ul>
+        {% for file in folder.file_set.all %}
+        <li>
+          {{ file.name }} - <a href="{% url 'delete_file' file.id %}">Delete</a>
+        </li>
         {% endfor %}
+      </ul>
+      {% endfor %}
     </ul>
-</body>
-</html> nm,.
+  </body>
+</html>
