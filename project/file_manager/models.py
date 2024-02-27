@@ -11,3 +11,4 @@ class File(models.Model):
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     file = models.FileField(upload_to='files/')
+    text_file_path = models.CharField(max_length=255, blank=True)

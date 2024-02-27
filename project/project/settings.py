@@ -78,7 +78,8 @@ DATABASES = {
     }
 }
 
-
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -126,8 +127,8 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "kumawat.7@iitj.ac.in"
-EMAIL_HOST_PASSWORD = "Jamyang@1857"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 
 
 '''
