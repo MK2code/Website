@@ -2,13 +2,6 @@ from django import forms
 from .models import Folder
 
 
-# class MultipleFileInput(forms.FileField):
-#     # widget = forms.FileField(label='Select files')
-#     allow_multiple_selected = True
-#     is_hidden = False
-#     def __init__(self, attrs=None):
-#         super().__init__(attrs)
-#         self.widget = forms.ClearableFileInput(attrs={'multiple': True})
 class MultipleFileInput(forms.ClearableFileInput):
     allow_multiple_selected = True
            
